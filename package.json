@@ -1,5 +1,6 @@
 {
   "name": "todo-clean-architecture",
+  "type": "module",
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy --minify",
@@ -16,6 +17,7 @@
     "@types/pg": "^8.11.11",
     "drizzle-kit": "^0.30.5",
     "tsx": "^4.19.3",
+    "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.0.7",
     "wrangler": "^3.109.2"
   }
