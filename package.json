@@ -2,7 +2,8 @@
   "name": "todo-clean-architecture",
   "scripts": {
     "dev": "wrangler dev",
-    "deploy": "wrangler deploy --minify"
+    "deploy": "wrangler deploy --minify",
+    "test": "vitest"
   },
   "dependencies": {
     "dotenv": "^16.4.7",
