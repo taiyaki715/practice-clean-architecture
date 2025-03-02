@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { Todo } from "@/domain/entities/todo";
+import { Todo } from "@/core/models/todo";
 
 describe("todo entity", () => {
     it("正しく作成できる。", () => {

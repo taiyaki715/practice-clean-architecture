@@ -1,5 +1,5 @@
 import { relations } from "drizzle-orm";
-import { pgTable, text, uuid } from "drizzle-orm/pg-core";
+import { boolean, pgTable, text, uuid } from "drizzle-orm/pg-core";
 
 export const todoStatuses = pgTable("todo_statuses", {
     id: uuid().primaryKey().defaultRandom(),
@@ -13,12 +13,12 @@ export const todoStatusesRelations = relations(todoStatuses, ({ many }) => ({
 export const todos = pgTable("todos", {
     id: uuid().primaryKey().defaultRandom(),
     title: text().notNull(),
-    status: uuid().notNull().references(() => todoStatuses.id),
+    completed: boolean().notNull().default(false),
 });
 
 export const todosRelations = relations(todos, ({ one }) => ({
     todoStatus: one(todoStatuses, {
-        fields: [todos.status],
+        fields: [todos.completed],
         references: [todoStatuses.id],
     }),
 }));
