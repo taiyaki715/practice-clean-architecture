@@ -16,10 +16,18 @@ export class Todo {
     };
 
     public complete(): Todo {
+        if (this.completed) {
+            throw new Error("Todoはすでに完了しています");
+        }
+
         return new Todo(this.id, this.title, true);
     }
 
     public uncomplete(): Todo {
+        if (!this.completed) {
+            throw new Error("Todoは未完了です");
+        }
+
         return new Todo(this.id, this.title, false);
     }
 }

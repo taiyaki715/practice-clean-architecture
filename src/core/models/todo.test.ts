@@ -45,5 +45,17 @@ describe("[Entity] Todo", () => {
             expect(() => new Todo(validId, ""))
                 .toThrow("Todoのタイトルは必須です");
         });
+
+        it("完了済のTodoは完了操作できない", () => {
+            const todo = new Todo(validId, validTitle, true);
+            expect(() => todo.complete())
+                .toThrow("Todoはすでに完了しています");
+        });
+
+        it("未完了のTodoは未完了操作できない", () => {
+            const todo = new Todo(validId, validTitle, false);
+            expect(() => todo.uncomplete())
+                .toThrow("Todoは未完了です");
+        });
     });
 });
